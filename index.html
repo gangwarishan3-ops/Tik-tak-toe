@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tic Tac Toe Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <div class="header">
+      <h1>🎮 Tic Tac Toe</h1>
+      <p class="subtitle">Player vs Player</p>
+    </div>
+
+    <div id="game-status" class="game-status">Player 1 (O)'s Turn</div>
+    
+    <div class="container">
+      <div class="game">
+        <button class="box"></button>
+        <button class="box"></button>
+        <button class="box"></button>
+        <button class="box"></button>
+        <button class="box"></button>
+        <button class="box"></button>
+        <button class="box"></button>
+        <button class="box"></button>
+        <button class="box"></button>
+      </div>
+    </div>
+
+    <div id="score" class="score">Player 1 (O): 0 | Player 2 (X): 0 | Draws: 0</div>
+    
+    <div class="button-group">
+      <button id="reset-btn" class="reset-btn">🔄 New Game</button>
+      <button id="clear-score" class="clear-btn">Clear Score</button>
+    </div>
+  </main>
+  <script src="app.js"></script>
+  <script>
+    // Clear score button functionality
+    document.getElementById('clear-score').addEventListener('click', () => {
+      if (confirm('Clear all scores?')) {
+        localStorage.removeItem('tictactoe-score');
+        score = { human: 0, ai: 0, draws: 0 };
+        updateScoreDisplay();
+        resetGame();
+      }
+    });
+  </script>
+</body>
+</html>
